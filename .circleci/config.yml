@@ -31,4 +31,4 @@ jobs:
             - ./node_modules
       - run:
           command: |
-            git push https://heroku:bca0d752-4efb-4997-9495-dac4a8bbebbc@git.heroku.com/pxwe.git master
+            git push https://heroku:bca0d752-4efb-4997-9495-dac4a8bbebbc@git.heroku.com/test-pxwe.git master
