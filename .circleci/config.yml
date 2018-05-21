@@ -34,8 +34,12 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-  deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: gatsby-auto-deploy
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:2315c923-8688-4350-a397-3d6f9a00a267@git.heroku.com/gatsby-auto-deploy.git master
