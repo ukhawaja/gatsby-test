@@ -23,7 +23,7 @@ jobs:
           # See https://circleci.com/docs/2.0/caching/#restoring-cache
           key: v1-dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install-npm
+          name: install-yarn
           command: yarn install
       - save_cache:
           key: v1-dependency-cache-{{ checksum "package.json" }}
@@ -31,4 +31,4 @@ jobs:
             - ./node_modules
       - run:
           command: |
-            git push https://heroku:9c87cad1-dd94-46ca-a58a-f9a634c3d6c7@git.heroku.com/gatsby-auto-deploy.git master
+            git push https://heroku:9c87cad1-dd94-46ca-a58a-f9a634c3d6c7@git.heroku.com/we-test.git master
