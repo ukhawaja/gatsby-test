@@ -2,6 +2,17 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
 version: 2
 jobs:
   build:
@@ -29,3 +40,10 @@ jobs:
           key: v1-dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+  deploy:
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:9c87cad1-dd94-46ca-a58a-f9a634c3d6c7@git.heroku.com/gatsby-auto-deploy.git
