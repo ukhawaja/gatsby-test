@@ -31,4 +31,4 @@ jobs:
             - ./node_modules
       - run:
           command: |
-            git push https://heroku:9c87cad1-dd94-46ca-a58a-f9a634c3d6c7@git.heroku.com/we-test.git master
+            git push https://heroku:9c87cad1-dd94-46ca-a58a-f9a634c3d6c7@git.heroku.com/we-servers.git master
