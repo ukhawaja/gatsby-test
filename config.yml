@@ -2,19 +2,20 @@ machine:
   pre:
     - mkdir ~/.yarn-cache
   node:
-    version: stable
+    version: v4.6.1
+
 dependencies:
-  pre:
-    - curl -o- -L https://yarnpkg.com/install.sh | bash
+  override:
+    - ./scripts/misc/installPackageManager && yarn install
   cache_directories:
     - ~/.yarn-cache
-  override:
-    - yarn install
+
 test:
   override:
     - yarn test
+
 deployment:
-  production:
+  prod:
     branch: master
     heroku:
       appname: gatsby-auto-deploy
